@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 /**
  * @author chenpeng
  */
-@FeignClient(value = "nacos-provider1", fallback = OpenfeignProviderRpcFallback.class)
+@FeignClient(value = "nacos-provider", fallback = OpenfeignProviderRpcFallback.class)
 public interface OpenfeignProviderRpc {
 
     @GetMapping(value = "/provider/getId/{id}")

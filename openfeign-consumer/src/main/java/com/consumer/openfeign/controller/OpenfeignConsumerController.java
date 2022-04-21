@@ -2,6 +2,8 @@ package com.consumer.openfeign.controller;
 
 import com.consumer.openfeign.rpc.OpenfeignProviderInterfaceRpc;
 import com.consumer.openfeign.rpc.OpenfeignProviderRpc;
+import com.springcloud.rpc.model.param.HelloProviderParam;
+import com.springcloud.rpc.model.vo.HelloProviderVO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +27,7 @@ public class OpenfeignConsumerController {
     /**
      * 自己写接口 声明式调用
      *
+     * 127.0.0.1:9001/consumer/getId/1
      * @param id id
      * @return string
      */
@@ -36,11 +39,12 @@ public class OpenfeignConsumerController {
     /**
      * 提供方提供接口 声明式调用
      *
-     * @param id id
+     * 127.0.0.1:9001/consumer/hello?name=张三&age=20
+     * @param param 入参
      * @return string
      */
-    @GetMapping(value = "consumer/getId1/{id}")
-    public String getId1(@PathVariable("id") String id) {
-        return openfeignProviderInterfaceRpc.getId(id);
+    @GetMapping(value = "consumer/hello")
+    public HelloProviderVO hello(HelloProviderParam param) {
+        return openfeignProviderInterfaceRpc.hello(param);
     }
 }

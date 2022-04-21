@@ -8,7 +8,14 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
-
+#@FeignClient value/name 值重复导致报错的解决办法
+  main:
+    # 默认是 false
+    allow-bean-definition-overriding: true
+#开启降级处理
+feign:
+  hystrix:
+    enabled: true
 
 #消费者将要去访问的微服务名称(注册成功进nacos的微服务提供者)
 service-url:

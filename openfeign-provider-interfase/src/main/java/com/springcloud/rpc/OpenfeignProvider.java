@@ -1,14 +1,16 @@
 package com.springcloud.rpc;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import com.springcloud.rpc.model.param.HelloProviderParam;
+import com.springcloud.rpc.model.vo.HelloProviderVO;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  * @author chenpeng
  */
 public interface OpenfeignProvider {
 
-    @GetMapping(value = "/provider/getId1/{id}")
-    String getId(@PathVariable("id") String id);
+    @PostMapping(value = "/provider/hello")
+    HelloProviderVO hello(@RequestBody HelloProviderParam param);
 
 }
