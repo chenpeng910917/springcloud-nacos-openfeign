@@ -5,27 +5,31 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.6</version>
+		<version>2.2.6.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
+	<groupId>com.springcloud</groupId>
 	<artifactId>springcloud-nacos-openfeign</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springcloud-nacos-openfeign</name>
 	<description>springcloud-nacos-openfeign</description>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>openfeign-consumer</module>
+		<module>openfeign-provider</module>
+		<module>openfeign-provider-interfase</module>
+	</modules>
+
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.22</version>
 		</dependency>
 	</dependencies>
 
