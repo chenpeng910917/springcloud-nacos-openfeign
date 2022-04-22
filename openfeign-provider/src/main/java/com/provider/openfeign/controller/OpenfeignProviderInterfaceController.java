@@ -12,6 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 public class OpenfeignProviderInterfaceController implements OpenfeignProvider {
+
+    /**
+     * 127.0.0.1:9000/provider/hello
+     * {
+     *     "name":"多个",
+     *     "age":44
+     * }
+     *
+     * @param param
+     * @return
+     */
     @Override
     public HelloProviderVO hello(HelloProviderParam param) {
         log.info("OpenfeignProviderInterfaceController 声明式提供接口调用 param={}", param);
