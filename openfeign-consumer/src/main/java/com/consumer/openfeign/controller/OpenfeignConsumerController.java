@@ -4,6 +4,7 @@ import com.consumer.openfeign.rpc.OpenfeignProviderInterfaceRpc;
 import com.consumer.openfeign.rpc.OpenfeignProviderRpc;
 import com.springcloud.rpc.model.param.HelloProviderParam;
 import com.springcloud.rpc.model.vo.HelloProviderVO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import javax.annotation.Resource;
  *
  * @author chenpeng
  */
+@Slf4j
 @RestController
 public class OpenfeignConsumerController {
 
@@ -33,6 +35,7 @@ public class OpenfeignConsumerController {
      */
     @GetMapping(value = "consumer/getId/{id}")
     public String getId(@PathVariable("id") String id) {
+        log.info("getId id={}", id);
         return openfeignProviderRpc.getId(id);
     }
 
@@ -45,6 +48,7 @@ public class OpenfeignConsumerController {
      */
     @GetMapping(value = "consumer/hello")
     public HelloProviderVO hello(HelloProviderParam param) {
+        log.info("hello param={}", param);
         return openfeignProviderInterfaceRpc.hello(param);
     }
 }
